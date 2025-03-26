@@ -15,6 +15,14 @@
     <file url="file://$PROJECT_DIR$/young-consumer/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/young-consumer/young-consumer-common/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/young-consumer/young-consumer-common/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/young-consumer/young-consumer-native/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/young-consumer/young-consumer-native/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/young-loadbalancer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/young-loadbalancer/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/young-loadbalancer/young-loadbalancer-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/young-loadbalancer/young-loadbalancer-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/young-loadbalancer/young-loadbalancer-random/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/young-loadbalancer/young-loadbalancer-random/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/young-protocol/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/young-protocol/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/young-provider/src/main/java" charset="UTF-8" />
@@ -23,21 +31,47 @@
     <file url="file://$PROJECT_DIR$/young-provider/young-provider-common/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/young-provider/young-provider-native/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/young-provider/young-provider-native/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/young-proxy-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/young-proxy-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/young-proxy/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/young-proxy/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/young-proxy/young-proxy-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/young-proxy/young-proxy-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/young-proxy/young-proxy-jdk/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/young-proxy/young-proxy-jdk/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/young-registry/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/young-registry/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/young-registry/young-registry-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/young-registry/young-registry-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/young-registry/young-registry-zookeeper/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/young-registry/young-registry-zookeeper/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/young-serialization/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/young-serialization/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/young-serialization/young-serialization-api/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/young-serialization/young-serialization-api/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/young-serialization/young-serialization-jdk/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/young-serialization/young-serialization-jdk/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/young-spi/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/young-spi/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/young-test/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/young-test/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/young-test/young-test-api/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/young-test/young-test-api/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/young-test/young-test-consumer/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/young-test/young-test-consumer/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/young-test/young-test-consumer/young-test-consumer-codec/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/young-test/young-test-consumer/young-test-consumer-codec/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/young-test/young-test-consumer/young-test-consumer-handler/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/young-test/young-test-consumer/young-test-consumer-handler/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/young-test/young-test-consumer/young-test-consumer-native/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/young-test/young-test-consumer/young-test-consumer-native/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/young-test/young-test-provider/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/young-test/young-test-provider/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/young-test/young-test-registry/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/young-test/young-test-registry/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/young-test/young-test-scanner/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/young-test/young-test-scanner/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/young-test/young-test-spi/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/young-test/young-test-spi/src/main/resources" charset="UTF-8" />
   </component>
 </project>

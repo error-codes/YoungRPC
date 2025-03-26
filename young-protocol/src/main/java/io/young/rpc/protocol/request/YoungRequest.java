@@ -7,10 +7,9 @@ import java.io.Serial;
 /**
  * @author YoungCR
  * @date 2024/12/23 13:35
- * @descritpion YoungRequest q
+ * @descritpion YoungRequest 请求类
  */
 public class YoungRequest extends BaseMessage {
-
 
     @Serial
     private static final long serialVersionUID = 4040795203578193711L;
@@ -99,13 +98,15 @@ public class YoungRequest extends BaseMessage {
         return this;
     }
 
+    @Override
     public YoungRequest async(boolean async) {
-        setAsync(async);
+        super.async(async);
         return this;
     }
 
+    @Override
     public YoungRequest oneway(boolean oneway) {
-        setOneway(oneway);
+        super.oneway(oneway);
         return this;
     }
 }

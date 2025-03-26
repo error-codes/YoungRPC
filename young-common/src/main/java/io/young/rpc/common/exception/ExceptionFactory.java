@@ -11,12 +11,12 @@ public class ExceptionFactory {
         return createException(YoungException.class, message);
     }
 
-    public static <T extends YoungException> T createException(Class<T> clazz, String message) {
+    public static <T extends RuntimeException> T createException(Class<T> clazz, String message) {
         T exception;
         try {
             exception = clazz.getConstructor(String.class).newInstance(message);
         } catch (Throwable e) {
-            exception = (T) new YoungException(message);
+            exception = clazz.cast(new YoungException(message));
         }
         return exception;
     }
@@ -25,7 +25,7 @@ public class ExceptionFactory {
         return createException(YoungException.class, message, cause);
     }
 
-    public static <T extends YoungException> T createException(Class<T> clazz, String message, Throwable cause) {
+    public static <T extends RuntimeException> T createException(Class<T> clazz, String message, Throwable cause) {
         T exception = createException(clazz, message);
         if (cause != null) {
             try {

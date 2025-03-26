@@ -10,7 +10,7 @@ import java.io.*;
 /**
  * @author YoungCR
  * @date 2024/12/23 20:24
- * @descritpion JdkSerialization
+ * @descritpion JdkSerialization JDK序列化
  */
 public class JdkSerialization implements Serialization {
 
@@ -37,7 +37,7 @@ public class JdkSerialization implements Serialization {
         try {
             ByteArrayInputStream bis = new ByteArrayInputStream(data);
             ObjectInputStream    ois = new ObjectInputStream(bis);
-            return (T) ois.readObject();
+            return clazz.cast(ois.readObject());
         } catch (Exception e) {
             throw ExceptionFactory.createException(SerializerException.class, e.getMessage(), e);
         }

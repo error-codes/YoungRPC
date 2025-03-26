@@ -13,21 +13,21 @@ import java.nio.charset.StandardCharsets;
 /**
  * @author YoungCR
  * @date 2024/12/23 20:54
- * @descritpion YoungEncoder
+ * @descritpion YoungEncoder  编码器
  */
 public class YoungEncoder extends MessageToByteEncoder<YoungProtocol<Object>> implements YoungCodec {
 
     @Override
-    protected void encode(ChannelHandlerContext channelHandlerContext, YoungProtocol<Object> protocol, ByteBuf byteBuf) throws Exception {
+    protected void encode(ChannelHandlerContext channelHandlerContext, YoungProtocol<Object> protocol, ByteBuf byteBuf) {
         YoungHeader header = protocol.getHeader();
         byteBuf.writeShort(header.getMagic());
-        byteBuf.writeByte(header.getMsgType());
+        byteBuf.writeByte(header.getPacketType());
         byteBuf.writeByte(header.getStatus());
-        byteBuf.writeLong(header.getMsgId());
+        byteBuf.writeLong(header.getRequestId());
         String serializationType = header.getSerializationType();
         // TODO: Serialization 是扩展点
         Serialization serialization = getJdkSerialization();
-        byteBuf.writeBytes(SerializationUtils.padToFixedLength(serializationType).getBytes(StandardCharsets.UTF_8));
+        byteBuf.writeBytes(SerializationUtils.paddingToFixedLength(serializationType).getBytes(StandardCharsets.UTF_8));
         byte[] data = serialization.serialize(protocol.getBody());
         byteBuf.writeInt(data.length);
         byteBuf.writeBytes(data);

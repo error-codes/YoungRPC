@@ -9,24 +9,24 @@ import io.young.rpc.common.util.RespUtils;
 import io.young.rpc.common.util.SerializationUtils;
 import io.young.rpc.constants.YoungConstants;
 import io.young.rpc.protocol.YoungProtocol;
-import io.young.rpc.protocol.enumeration.RPCType;
+import io.young.rpc.protocol.enumeration.RpcType;
 import io.young.rpc.protocol.header.YoungHeader;
 import io.young.rpc.protocol.request.YoungRequest;
 import io.young.rpc.protocol.response.YoungResponse;
 import io.young.rpc.serialization.api.Serialization;
-import io.young.rpc.serialization.jdk.JdkSerialization;
 
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 /**
  * @author YoungCR
  * @date 2024/12/24 9:20
- * @descritpion YoungDecoder
+ * @descritpion YoungDecoder 解码器
  */
 public class YoungDecoder extends ByteToMessageDecoder implements YoungCodec {
 
     @Override
-    protected void decode(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf, List<Object> list) throws Exception {
+    protected void decode(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf, List<Object> list) {
         if (byteBuf.readableBytes() < YoungConstants.HEADER_TOTAL_LEN) {
             return;
         }
@@ -36,12 +36,12 @@ public class YoungDecoder extends ByteToMessageDecoder implements YoungCodec {
             throw ExceptionFactory.createException(WrongArgumentException.class, RespUtils.getContent("Protocol.0", magic));
         }
 
-        byte msgType = byteBuf.readByte();
-        byte status     = byteBuf.readByte();
-        long msgId = byteBuf.readLong();
+        byte packetType = byteBuf.readByte();
+        byte status = byteBuf.readByte();
+        long requestId = byteBuf.readLong();
 
-        ByteBuf serializationByteBuf = byteBuf.readBytes(SerializationUtils.MAX_TYPE_LENGTH);
-        String serializationType = SerializationUtils.removeFillCharacters(serializationByteBuf.toString());
+        ByteBuf serializationByteBuf = byteBuf.readBytes(SerializationUtils.MAX_SERIALIZATION_TYPE_LENGTH);
+        String serializationType = SerializationUtils.removePaddingCharacters(serializationByteBuf.toString(StandardCharsets.UTF_8));
 
         int dataLength = byteBuf.readInt();
         if (byteBuf.readableBytes() < dataLength) {
@@ -51,7 +51,7 @@ public class YoungDecoder extends ByteToMessageDecoder implements YoungCodec {
 
         byte[] data = new byte[dataLength];
         byteBuf.readBytes(data);
-        RPCType rpcType = RPCType.findByType(msgType);
+        RpcType rpcType = RpcType.findByType(packetType);
         if (rpcType == null) {
             return;
         }
@@ -59,12 +59,12 @@ public class YoungDecoder extends ByteToMessageDecoder implements YoungCodec {
         YoungHeader header = new YoungHeader();
         header.setMagic(magic);
         header.setStatus(status);
-        header.setMsgId(msgId);
-        header.setMsgType(msgType);
+        header.setRequestId(requestId);
+        header.setPacketType(packetType);
         header.setSerializationType(serializationType);
-        header.setMsgLength(dataLength);
+        header.setDataLength(dataLength);
         // TODO: Serialization 是扩展点
-        Serialization serialization = new JdkSerialization();
+        Serialization serialization = getJdkSerialization();
         switch (rpcType) {
             case REQUEST -> {
                 YoungRequest request = serialization.deserialize(data, YoungRequest.class);
@@ -74,8 +74,8 @@ public class YoungDecoder extends ByteToMessageDecoder implements YoungCodec {
                     protocol.setBody(request);
                     list.add(protocol);
                 }
-                break;
             }
+
             case RESPONSE -> {
                 YoungResponse response = serialization.deserialize(data, YoungResponse.class);
                 if (response != null) {
@@ -84,11 +84,14 @@ public class YoungDecoder extends ByteToMessageDecoder implements YoungCodec {
                     protocol.setBody(response);
                     list.add(protocol);
                 }
-                break;
             }
+
             case HEARTBEAT -> {
                 // TODO: 心跳处理
-                break;
+            }
+
+            default -> {
+
             }
         }
     }

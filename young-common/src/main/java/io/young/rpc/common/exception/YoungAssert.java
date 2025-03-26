@@ -3,8 +3,6 @@ package io.young.rpc.common.exception;
 import org.springframework.util.ObjectUtils;
 
 import java.math.BigDecimal;
-import java.util.Collection;
-import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -64,7 +62,7 @@ public class YoungAssert {
         }
     }
 
-    public static void throwAssertIfNotEqual(String s1, String s2, String message) {
+    public static void throwAssertIfNotEqual(Object s1, Object s2, String message) {
         if (!Objects.equals(s1, s2)) {
             throw new AssertException(message);
         }

@@ -21,6 +21,11 @@
         <module>young-serialization/young-serialization-api</module>
         <module>young-codec</module>
         <module>young-consumer</module>
+        <module>young-proxy</module>
+        <module>young-registry</module>
+        <module>young-loadbalancer</module>
+        <module>young-spi</module>
+        <module>young-test/young-test-spi</module>
     </modules>
 
     <properties>
@@ -31,6 +36,8 @@
         <spring.boot.version>3.3.2</spring.boot.version>
         <junit.version>4.13.2</junit.version>
         <netty.version>4.1.116.Final</netty.version>
+
+        <curator.version>5.7.1</curator.version>
     </properties>
 
 

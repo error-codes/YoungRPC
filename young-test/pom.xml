@@ -16,6 +16,7 @@
         <module>young-test-scanner</module>
         <module>young-test-consumer</module>
         <module>young-test-api</module>
+        <module>young-test-registry</module>
     </modules>
 
     <properties>

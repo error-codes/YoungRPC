@@ -15,11 +15,10 @@ import io.young.rpc.consumer.common.handler.YoungConsumerHandler;
 public class YoungConsumerInitializer extends ChannelInitializer<SocketChannel> {
 
     @Override
-    protected void initChannel(SocketChannel socketChannel) throws Exception {
+    protected void initChannel(SocketChannel socketChannel) {
         ChannelPipeline pipeline = socketChannel.pipeline();
         pipeline.addLast(new YoungEncoder());
         pipeline.addLast(new YoungDecoder());
         pipeline.addLast(new YoungConsumerHandler());
-
     }
 }

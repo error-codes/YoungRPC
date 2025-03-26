@@ -29,5 +29,17 @@
             <artifactId>young-codec</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>io.young.rpc</groupId>
+            <artifactId>young-registry-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.young.rpc</groupId>
+            <artifactId>young-registry-zookeeper</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 </project>

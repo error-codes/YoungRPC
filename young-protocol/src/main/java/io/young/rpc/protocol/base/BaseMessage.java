@@ -13,25 +13,31 @@ public class BaseMessage implements Serializable {
     @Serial
     private static final long serialVersionUID = 2404568700825381178L;
 
-    // 单向发送
+    /**
+     * 单向发送
+     */
     private boolean oneway;
 
-    // 异步发送
+    /**
+     * 异步发送
+     */
     private boolean async;
 
     public boolean isOneway() {
         return oneway;
     }
 
-    public void setOneway(boolean oneway) {
+    public BaseMessage oneway(boolean oneway) {
         this.oneway = oneway;
+        return this;
     }
 
     public boolean isAsync() {
         return async;
     }
 
-    public void setAsync(boolean async) {
+    public BaseMessage async(boolean async) {
         this.async = async;
+        return this;
     }
 }

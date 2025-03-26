@@ -7,7 +7,7 @@ import java.io.Serial;
 /**
  * @author YoungCR
  * @date 2024/12/23 14:26
- * @descritpion YoungResponse
+ * @descritpion YoungResponse 响应消息类
  */
 public class YoungResponse extends BaseMessage {
 
@@ -17,6 +17,10 @@ public class YoungResponse extends BaseMessage {
     private String error;
 
     private Object result;
+
+    public boolean isError() {
+        return error != null;
+    }
 
     public String getError() {
         return error;

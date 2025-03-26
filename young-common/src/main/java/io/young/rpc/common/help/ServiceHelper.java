@@ -3,7 +3,7 @@ package io.young.rpc.common.help;
 /**
  * @author YoungCR
  * @date 2024/12/24 18:34
- * @descritpion ServiceHelper
+ * @descritpion ServiceHelper 服务工具类
  */
 public class ServiceHelper {
 

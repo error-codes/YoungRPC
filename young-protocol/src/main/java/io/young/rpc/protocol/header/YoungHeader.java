@@ -13,18 +13,18 @@ public class YoungHeader implements Serializable {
     @Serial
     private static final long serialVersionUID = -6488750012583220101L;
 
-    /**
+    /*
      * 消息协议结构：
      * <p>
-     * +----------------+------------------+----------------+-----------------+
-     * | 魔数【2 Byte】  | 报文类型【1 Byte】 | 状态【1 Byte】  | 消息ID【8 Byte】 |
-     * +----------------------------------------------------------------------+
-     * |        序列化类型【16 Byte】        |         数据长度【4 Byte】         |
-     * +-----------------------------------+----------------------------------+
+     * ➕---------------➕-------------------➕---------------➕-----------------➕
+     *   |   魔数 (2 Byte)   |   报文类型 (1 Byte)   |   状态 (1 Byte)   |   消息ID (8 Byte)   |
+     * ➕---------------➕-------------------➕---------------➕-----------------➕
+     *   |                序列化类型  (16 Byte)              |          数据长度  (4 Byte)                      |
+     * ➕-------------------------------------➕----------------------------------- ➕
      */
 
 
-     /**
+    /**
      * 魔数
      */
     private short magic;
@@ -32,7 +32,7 @@ public class YoungHeader implements Serializable {
     /**
      * 报文类型
      */
-    private byte msgType;
+    private byte packetType;
 
     /**
      * 报文状态
@@ -40,9 +40,9 @@ public class YoungHeader implements Serializable {
     private byte status;
 
     /**
-     * 消息ID
+     * 请求ID
      */
-    private long msgId;
+    private long requestId;
 
     /**
      * 序列化类型
@@ -50,9 +50,9 @@ public class YoungHeader implements Serializable {
     private String serializationType;
 
     /**
-     * 消息长度
+     * 数据长度
      */
-    private int msgLength;
+    private int dataLength;
 
     public short getMagic() {
         return magic;
@@ -62,12 +62,12 @@ public class YoungHeader implements Serializable {
         this.magic = magic;
     }
 
-    public byte getMsgType() {
-        return msgType;
+    public byte getPacketType() {
+        return packetType;
     }
 
-    public void setMsgType(byte msgType) {
-        this.msgType = msgType;
+    public void setPacketType(byte packetType) {
+        this.packetType = packetType;
     }
 
     public byte getStatus() {
@@ -78,12 +78,12 @@ public class YoungHeader implements Serializable {
         this.status = status;
     }
 
-    public long getMsgId() {
-        return msgId;
+    public long getRequestId() {
+        return requestId;
     }
 
-    public void setMsgId(long msgId) {
-        this.msgId = msgId;
+    public void setRequestId(long requestId) {
+        this.requestId = requestId;
     }
 
     public String getSerializationType() {
@@ -94,11 +94,11 @@ public class YoungHeader implements Serializable {
         this.serializationType = serializationType;
     }
 
-    public int getMsgLength() {
-        return msgLength;
+    public int getDataLength() {
+        return dataLength;
     }
 
-    public void setMsgLength(int msgLength) {
-        this.msgLength = msgLength;
+    public void setDataLength(int dataLength) {
+        this.dataLength = dataLength;
     }
 }
